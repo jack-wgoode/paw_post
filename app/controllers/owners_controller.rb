@@ -7,7 +7,7 @@ class OwnersController < ApplicationController
 
   # GET: /owners/new
   get "/owners/new" do
-    erb :"/owners/new.html"
+    erb :"/owners/new"
   end
 
   # POST: /owners
@@ -15,7 +15,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(email: params[:email], password: params[:password])
     if @owner.save
       session[:id] = @owner.id
-      redirect "/"
+      redirect "/owners/index"
     else 
       erb :'owners/new'
     end
