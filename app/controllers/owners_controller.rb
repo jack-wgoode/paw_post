@@ -12,26 +12,14 @@ class OwnersController < ApplicationController
 
   # POST: /owners
   post "/owners" do
-    redirect "/owners"
+    @owner = Owner.new(email: params[:email], password: params[:password])
+    if @owner.save
+      session[:id] = @owner.id
+      redirect "/"
+    else 
+      erb :'owners/new'
+    end
   end
 
-  # GET: /owners/5
-  get "/owners/:id" do
-    erb :"/owners/show.html"
-  end
-
-  # GET: /owners/5/edit
-  get "/owners/:id/edit" do
-    erb :"/owners/edit.html"
-  end
-
-  # PATCH: /owners/5
-  patch "/owners/:id" do
-    redirect "/owners/:id"
-  end
-
-  # DELETE: /owners/5/delete
-  delete "/owners/:id/delete" do
-    redirect "/owners"
-  end
+  
 end
