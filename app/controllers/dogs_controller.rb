@@ -7,11 +7,12 @@ class DogsController < ApplicationController
 
   # GET: /dogs/new
   get "/dogs/new" do
-    erb :"/dogs/new.html"
+    erb :"/dogs/new"
   end
 
   # POST: /dogs
   post "/dogs" do
+    
     redirect "/dogs"
   end
 
