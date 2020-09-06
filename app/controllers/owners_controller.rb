@@ -15,7 +15,7 @@ class OwnersController < ApplicationController
     @owner = Owner.new(email: params[:email], password: params[:password])
     if @owner.save
       session[:id] = @owner.id
-      redirect "/owners/index"
+      redirect "/dogs/new"
     else 
       erb :'owners/new'
     end
