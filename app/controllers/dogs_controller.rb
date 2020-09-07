@@ -13,7 +13,7 @@ class DogsController < ApplicationController
 
   # POST: /dogs
   post "/dogs" do
-    dog = Dog.create(dog_params)
+    @dog = Dog.create(dog_params)
     redirect "/dogs/#{dog.id}"   #show view
   end
 
@@ -35,6 +35,8 @@ class DogsController < ApplicationController
 
   # DELETE: /dogs/5/delete
   delete "/dogs/:id/delete" do
+    @dog = Dog.find(params[:id])
+    @dog.destroy
     redirect "/dogs"
   end
 
