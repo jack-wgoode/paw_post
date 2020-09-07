@@ -13,12 +13,13 @@ class DogsController < ApplicationController
 
   # POST: /dogs
   post "/dogs" do
-    
-    #redirect "/dogs"
+    dog = Dog.create(dog_params)
+    redirect "/dogs/#{dog.id}"   #show view
   end
 
   # GET: /dogs/5
   get "/dogs/:id" do
+    @dog = Dog.find(params[:id])
     erb :"/dogs/show.html"
   end
 
@@ -35,5 +36,14 @@ class DogsController < ApplicationController
   # DELETE: /dogs/5/delete
   delete "/dogs/:id/delete" do
     redirect "/dogs"
+  end
+
+  private
+
+  #helper method to secure against injection
+  def dog_params
+    allowed = ["name", "breed", "color", "age", "sex", "size", 
+    "spayed_or_neutered", "temperament", "favorite_game", "comments"]
+    params.select{|k| allowed.include?(k)}
   end
 end
