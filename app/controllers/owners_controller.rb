@@ -8,7 +8,7 @@ class OwnersController < ApplicationController
 
   # GET: /owners/new
   get "/owners/new" do
-    erb :"/owners/new"
+    erb :"/owners/new.html"
   end
 
   # POST: /owners
@@ -16,9 +16,9 @@ class OwnersController < ApplicationController
     @owner = Owner.new(email: params[:email], password: params[:password])
     if @owner.save
       session[:id] = @owner.id
-      redirect "/dogs/new" #should they go to login instead then fill out the dog form? Are they logged in as soon as they create an account
+      redirect "/dogs/new.html" #should they go to login instead then fill out the dog form? Are they logged in as soon as they create an account
     else 
-      erb :'dogs/new'
+      erb :'owners/new'
     end
   end
 

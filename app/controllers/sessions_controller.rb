@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
 
  
   get "/login" do
-    erb :"/sessions/login"
+    erb :"/sessions/login.html"
   end
 
   
@@ -13,10 +13,10 @@ class SessionsController < ApplicationController
     # if they typed in the right password then log them in, if not show them the form again
     if owner && owner.authenticate(params[:password]) 
       session[:id] = owner.id
-      erb :"/dogs/new"
+      redirect :"/dogs/new.html"
     else 
       @error = "Incorrect email or password"
-      erb :'/sessions/login'
+      erb :'/sessions/login.html'
     end
   end
 end
