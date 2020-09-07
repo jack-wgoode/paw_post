@@ -2,7 +2,7 @@ class DogsController < ApplicationController
 
   # GET: /dogs
   get "/dogs" do
-    redirect :"/dogs/index.html"
+    redirect :"/dogs/new.html"
   end
 
   # GET: /dogs/new

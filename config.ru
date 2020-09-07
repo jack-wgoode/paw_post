@@ -6,5 +6,5 @@ require './config/environment'
 
 run ApplicationController
 use SessionsController
-#use DogsController
+use DogsController
 use OwnersController
