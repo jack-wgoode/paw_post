@@ -19,6 +19,12 @@ class SessionsController < ApplicationController
       erb :'/sessions/login.html'
     end
   end
+
+  delete '/logout' do
+    session.clear
+    redirect "/"
+  end
+  
 end
 
   

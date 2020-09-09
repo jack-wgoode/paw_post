@@ -14,4 +14,18 @@ class ApplicationController < Sinatra::Base
     redirect "/owners/new"
   end
 
+
+  private
+
+  def current_user
+    User.find_by_id(session[:id])
+  end
+
+  def logged_in?
+    !!current_user #returns a boolean based on success or failure of
+  end
+
+  
+  
+
 end
