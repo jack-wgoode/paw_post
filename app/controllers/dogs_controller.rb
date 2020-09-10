@@ -14,7 +14,7 @@ class DogsController < ApplicationController
   # POST: /dogs
   post "/dogs" do
     @dog = Dog.create(dog_params)
-    redirect "/dogs/#{dog.id}"   #show view
+    redirect "/dogs/#{@dog.id}"   #show view
   end
 
   # GET: /dogs/5
