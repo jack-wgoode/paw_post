@@ -2,7 +2,8 @@ class DogsController < ApplicationController
 
   # GET: /dogs
   get "/dogs" do
-    redirect :"/dogs/new.html"
+    @dogs = Dog.all
+    erb  :"/dogs/index.html"
   end
 
   # GET: /dogs/new
@@ -25,19 +26,22 @@ class DogsController < ApplicationController
 
   # GET: /dogs/5/edit
   get "/dogs/:id/edit" do
+    @dog = Dog.find(params[:id])
     erb :"/dogs/edit.html"
   end
 
   # PATCH: /dogs/5
   patch "/dogs/:id" do
-    redirect "/dogs/:id"
+    @dog = Dog.find(params[:id])
+    @dog.update(dog_params)
+    redirect "/dogs/#{@dog.id}" 
   end
 
   # DELETE: /dogs/5/delete
   delete "/dogs/:id/delete" do
     @dog = Dog.find(params[:id])
     @dog.destroy
-    redirect "/dogs"
+    redirect "/dogs/"
   end
 
   private

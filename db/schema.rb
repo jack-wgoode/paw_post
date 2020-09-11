@@ -17,14 +17,9 @@ ActiveRecord::Schema.define(version: 2020_09_07_001022) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "breed"
-    t.string "color"
-    t.integer "age"
-    t.string "sex"
-    t.string "size"
-    t.boolean "spayed_or_neutered"
     t.string "temperament"
-    t.string "favorite_game"
     t.text "comments"
+    t.integer "owner_id"
   end
 
   create_table "owners", force: :cascade do |t|
@@ -32,6 +27,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_001022) do
     t.datetime "updated_at", null: false
     t.string "email"
     t.string "password_digest"
+    t.string "password"
   end
 
 end

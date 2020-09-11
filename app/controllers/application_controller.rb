@@ -11,18 +11,18 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
-    redirect "/owners/new"
+    redirect "/login"
   end
 
 
   private
 
-  def current_user
-    User.find_by_id(session[:id])
+  def current_owner
+    Owner.find_by_id(session[:id])
   end
 
-  def logged_in
-    !!current_user 
+  def logged_in?
+    !!current_owner 
   end
 
   

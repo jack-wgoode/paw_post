@@ -1,1 +1,67 @@
-<h1>Insert the form to edit an instance of your model here.</h1>
+<h1 style="text-align: center";>Update Your Furry Friend's Profile</h1>
+<form method="post" action="/dogs/<%=@dog.id%>">
+<input type="hidden" method="_method" value="patch">
+  <p>
+    <div><label  for="name">Name</label></div>
+    <input type="name" name="name" id="name" placeholder=<%=@dog.name%> />
+  </p>
+  <p>
+    <div><label for="breed">Breed</label></div>
+    <input type="breed" name="breed" id="breed" placeholder=<%=@dog.breed%> />
+  </p>
+   <p>
+    <div><label for="color">Color</label></div>
+    <input type="text" name="color" id="color" placeholder=<%=@dog.color%> >
+  </p> 
+  <p>
+  <div><label for="size">Size:</label></div>
+  <select id="size" name="size" placeholder=<%=@dog.size %> >
+    <option value="small">Small(Up to 20lbs)</option>
+    <option value="medium">Medium(21 to 65lbs)</option>
+    <option value="large">Large(65lbs+)</option>
+    </p>
+  </select>
+  <br>
+  <br>
+  <p>
+  <p>
+  <input type="radio" id="male" name="sex" value="male">
+  <label for="male">Male</label><br>
+  <input type="radio" id="female" name="sex" value="female">
+  <label for="female">Female</label><br>
+  <p>
+  <div><label for="age">Age</label></div>
+    <input type="text" name="age" id="age" />
+  </p>
+  <p>
+  
+  
+ <div> <label for="temperament">Temperament:</label></div>
+  <select id="temperament" name="temperament" placeholder=<%=@dog.temperament %> >
+    <option value="" >Select a Description</option>
+    <option value="lazy dog">Lazy Dog</option>
+    <option value="feisty">Feisty</option>
+    <option value="playful">When do We Play?</option>
+    <option value="snugglemeister">Snugglemeister</option>
+  </select>
+  
+  </p>
+  <div> <label for="favorite_game">Favorite Game:</label></div>
+  <select id="favorite_game" name="favorite_game" placeholder="Select a Value">
+    <option value="" ><%=@dog.favorite_game%></option>
+    <option value="fetch" >Fetch!</option>
+    <option value="you fetch!">You Fetch!</option>
+    <option value="rope tug">When do We Play?</option>
+    <option value="hide and seek">Hide and Seek</option>
+    <option value="chase my buddies">Chase My Buddies</option>
+  </select>
+  <div>
+  <p>
+   <div><label  for="">What's Special About Your Pup?</label></div>
+    <textarea name="comments" placeholder="" rows="8" cols="40">
+    </textarea>
+    </p>
+  </div>
+  
+<input type="submit"  value="Update" />
+</form>
