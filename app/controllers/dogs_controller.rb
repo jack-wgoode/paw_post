@@ -48,8 +48,7 @@ class DogsController < ApplicationController
 
   #helper method to secure against injection
   def dog_params
-    allowed = ["name", "breed", "color", "age", "sex", "size", 
-    "spayed_or_neutered", "temperament", "favorite_game", "comments"]
+    allowed = ["name", "breed", "temperament", "comments"]
     params.select{|k| allowed.include?(k)}
   end
 end

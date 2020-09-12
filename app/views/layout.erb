@@ -24,14 +24,18 @@
           <input type="hidden" name="_method" value="delete"/>
           <input type="submit" value="Log Out"/>
         </form>  
+     <div>
+      <div> 
+      <a href="/dogs/new" text-align="center" >Add a Pup Profile</a>
+      <a href="/dogs/:id/edit" text-align="center" >Edit a Pup Profile</a>
       <% end %>
-    
-      
+      </div>
+      </div>
   </nav>
 
         <%= yield %>
         
-      <img STYLE="position:relative; TOP:-150px; LEFT:450px;"src="/images/paw_post_img.jpg" height="200" width="300" style="vertical-align:middle">
+      <img src="/images/paw_post_img.jpg" height="200" width="300" style="vertical-align:middle">
       <img src="/images/dog_car_paw_post.jpeg" height="200" width="200" style="vertical-align:middle" padding=60px>
       <img src="/images/pittie_paw_post.jpeg" height="200" width="300" style="vertical-align:middle">
       <img src="https://images.pexels.com/photos/59523/pexels-photo-59523.jpeg?cs=srgb&dl=pexels-torsten-dettlaff-59523.jpg&fm=jpg" height="200" width="300">
