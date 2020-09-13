@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
   private
 
   def current_owner
-    Owner.find_by_id(session[:id])
+    @current_user ||= Owner.find_by_id(session[:id]) 
   end
 
   def logged_in?

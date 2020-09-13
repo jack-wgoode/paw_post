@@ -13,7 +13,7 @@ class OwnersController < ApplicationController
 
   # POST: /owners
   post "/owners" do
-    @owner = Owner.new(email: params[:email], password: params[:password])
+    @owner = Owner.new(name: params[:name], email: params[:email], password: params[:password])
     if @owner.save
       session[:id] = @owner.id
       redirect "/dogs/new.html" 

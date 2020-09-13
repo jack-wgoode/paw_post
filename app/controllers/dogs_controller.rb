@@ -39,9 +39,9 @@ class DogsController < ApplicationController
 
   # PATCH: /dogs/5
   patch "/dogs/:id" do
-    @dog = Dog.find(params[:id])
+    @dog = Dog.find_by_id(params[:id])
     @dog.update(dog_params)
-    redirect "/dogs/#{@dog.id}" 
+    redirect "/dogs" 
   end
 
   # DELETE: /dogs/5/delete

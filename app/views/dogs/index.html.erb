@@ -1,5 +1,12 @@
-<h1>Here Are All The Dogs</h1>
+<nav><a href="/">Home</a></nav>
+<h1>Your Dogs</h1>
+<% if !@dog %>
+<h2>No Dogs. Add a Pup Profile.</h2>
+<% else %>
 <% @dogs.each do |dog| %>
-<h2><%= dog.name%> - <%=dog.breed%> - <%=dog.temperament%></h2> 
-<%end%>
 
+<a href="/dogs/<%= dog.id %>">
+
+<h1><%= dog.name%></h1>
+  <%end%> 
+<%end%>
