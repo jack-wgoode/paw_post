@@ -2,31 +2,38 @@ class DogsController < ApplicationController
 
   # GET: /dogs
   get "/dogs" do
-    @dogs = Dog.all
+    @dogs = current_owner.dogs
     erb  :"/dogs/index.html"
   end
 
   # GET: /dogs/new
   get "/dogs/new" do
+    @dog = Dog.new
     erb :"/dogs/new.html"
    
   end
 
   # POST: /dogs
   post "/dogs" do
-    @dog = Dog.create(dog_params)
-    redirect "/dogs/#{@dog.id}"   #show view
+    @owner = current_owner
+    @dog = @owner.dogs.build(name: params[:name], breed: params[:breed], temperament: params[:temperament], comments: params[:comments])
+    if @dog.save
+     
+      redirect "/dogs" 
+    else 
+      erb :"/dogs/new.html"
+    end
   end
 
   # GET: /dogs/5
   get "/dogs/:id" do
-    @dog = Dog.find(params[:id])
+    @dog = Dog.find_by_id(params[:id])
     erb :"/dogs/show.html"
   end
 
   # GET: /dogs/5/edit
   get "/dogs/:id/edit" do
-    @dog = Dog.find(params[:id])
+    @dog = Dog.find_by_id(params[:id])
     erb :"/dogs/edit.html"
   end
 
