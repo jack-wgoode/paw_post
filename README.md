@@ -48,6 +48,14 @@ BONUS: Display validation failures to user with error messages. (This is an opti
 
 sinatra-flash used to display errors at login attempts where the password does not match.
 
+This project is subject to the MIT license and open source contributions are welcome.
+https://opensource.org/licenses/MIT
+
+Contributors
+''''''''''''''''''''''''''''''''''''''''
+Collaboration is learning and growth. I am always open to learning a better way. Public permissions.
+
+
 Installation
 The following gems are required:
 
