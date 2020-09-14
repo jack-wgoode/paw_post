@@ -1,8 +1,8 @@
  Specifications for the Sinatra Assessment
 Specs:
 - [x] Use Sinatra to build the app- used the Corneal generator to build MVC stub and added specific Owner, Dog models.
-- [x] Use ActiveRecord for storing information in a database -has_many
-- [x] Include more than one model class (e.g. User, Post, Category)
+- [x] Use ActiveRecord for storing information in a database  foreign_key user_id associates owner. @dog and @owner instances used to access columns.
+- [x] Include more than one model class - Dog and Owner model the relationship
 - [x] Include at least one has_many relationship on your User model -  User("Owner") has_many dogs
 - [x] Include at least one belongs_to relationship on another model - dog belongs_to owner  foreign key owner_id
 - [x] Include user accounts with unique login attribute (username or email)- essions_controller handles this while checking for a unique email and that      the password matches.Logout button is only displayed when owner is logged in. Links to login or signup are visible when user is not logged in. The current logged in user is displayed on every page.
