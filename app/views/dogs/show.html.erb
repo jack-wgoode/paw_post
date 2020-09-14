@@ -1,8 +1,15 @@
    <div style= float: left;><nav> <a href="/dogs/<%= @dog.id %>/edit" >Edit Profile</a>
    <a href="/">Home</a> </nav> 
    </div> 
+<p>   
 <h1><%= @dog.name %> is a  <%= @dog.temperament %> <%=@dog.breed%>.</h1>
-  <h2><%=@dog.comments%> </h2>
-
-
+<br>
+  <h1><%=@dog.comments%> </h1>
+</p>
+<div>
+<form method="post" action="/dogs/<%= @dog.id %>" style="display: inline-block;">
+    <input type="hidden" name="_method" value="delete"/>
+    <input type="submit" value="Delete"/>
+</form>
+<div>
         

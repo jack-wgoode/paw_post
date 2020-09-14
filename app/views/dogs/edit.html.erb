@@ -1,18 +1,28 @@
 <h1 style="text-align: center";>Update Your Furry Friend's Profile</h1>
-
+<% if @dogAragon.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= @dog.errors.count %> error(s) prohibited this edit from being saved:</h2>
+ 
+    <ul>
+    <% @dog.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <form method="post" action="/dogs/<%= @dog.id %>" >
-<input type="hidden" method="_method" value="patch"/>
+<input type="hidden" method="_method" value="patch">
   <p>
     <div><label  for="name">Name</label></div>
-    <input type="name" name="name" id="name" value="<%= @dog.name%>" />
+    <input type="text" name="dog[name]" id="name" value="<%= @dog.name%>" />
   </p>
   <p>
     <div><label for="breed">Breed</label></div>
-    <input type="breed" name="breed" id="breed" value="<%= @dog.breed %>" />
+    <input type="text" name="dog[breed]" id="breed" value="<%= @dog.breed %>" />
   </p>
   
  <div> <label for="temperament">Temperament:</label></div>
-  <select id="temperament" name="temperament" value="<%= @dog[:temperament] %>" >
+  <select id="temperament" name="dog[temperament]" value="temperament" >
     <option value="" ><%= @dog.temperament %></option>
     <option value="lazy dog">Lazy Dog</option>
     <option value="feisty">Feisty</option>
@@ -21,9 +31,7 @@
   </select>
   <p>
    <div><label  for="">What's Special About Your Pup?</label></div>
-    <textarea name="comments"  id="comments" value="comments" rows="8" cols="40" style=white-space:pre-wrap;>
-    <%= @dog.comments %>
-    </textarea>
+    <textarea name="comments"  id="comments" value="dog[comments]" rows="8" cols="40" style=white-space:pre-wrap;><%= @dog.comments %></textarea>
     </p>
   
  <input type="submit" id="submit" value="Update" />
