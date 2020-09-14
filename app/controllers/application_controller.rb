@@ -18,7 +18,7 @@ class ApplicationController < Sinatra::Base
 
   private
   
-  helpers do
+  
     def current_owner
       @current_owner ||= Owner.find_by_id(session[:id]) 
     end
@@ -34,5 +34,5 @@ class ApplicationController < Sinatra::Base
       end
     end
 
-  end
+  
 end

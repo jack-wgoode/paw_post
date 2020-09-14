@@ -1,13 +1,13 @@
 class DogsController < ApplicationController
 
-  # GET: /dogs
+  
   get "/dogs" do
     redirect_if_not_logged_in
     @dogs = current_owner.dogs
     erb  :"/dogs/index.html"
   end
 
-  # GET: /dogs/new
+  # Create
   get "/dogs/new" do
     redirect "/login" if not logged_in?
     @dog = Dog.new
@@ -17,32 +17,31 @@ class DogsController < ApplicationController
 
   # POST: /dogs
   post "/dogs" do
-      
-    @dog = current_owner.dogs.build(name: params[:name], breed: params[:breed], temperament: params[:temperament], comments: params[:comments])
-    if @dog.save
-     
-      redirect "/dogs" 
-    else 
-      erb :"/dogs/new.html"
-    end
+   
+    @dog = current_owner.dogs.build(dog_params) 
+      if @dog.save
+         redirect "/dogs" 
+      else 
+        erb :"/dogs/new.html"
+      end
   end
 
-  # GET: /dogs/5
+  # Read
   get "/dogs/:id" do
     set_dog
     erb :"/dogs/show.html"
   end
 
- 
+ #Update
   get "/dogs/:id/edit" do
     set_dog
     erb :"/dogs/edit.html"
   end
 
-  # PATCH: /dogs/5
+  
   patch '/dogs/:id' do
     set_dog
-    if @dog..update(title: params[:dog][:title], content:params[:dog][:content])
+    if @dog.update(title: params[:dog][:title], content:params[:dog][:content])
       flash[:success] = "Profile successfully updated"
       redirect "/dogs/#{@dog.id}"
     else 
@@ -50,7 +49,7 @@ class DogsController < ApplicationController
     end
   end
 
-  # DELETE: /dogs/5/delete
+  # Delete
   delete "/dogs/:id" do
     set_dog
     @dog.destroy
@@ -69,7 +68,9 @@ class DogsController < ApplicationController
     @dog = Dog.find_by_id(params[:id])
     if @dog.nil?
       flash[:error] = "Couldn't find a Dog with id: #{params[:id]}"
-      redirect "/posts"
+      redirect "/dogs"
     end
   end
+
+ 
 end
