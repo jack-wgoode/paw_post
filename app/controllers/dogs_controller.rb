@@ -28,12 +28,14 @@ class DogsController < ApplicationController
 
   # Read
   get "/dogs/:id" do
+    redirect "/login" if not logged_in?
     set_dog
     erb :"/dogs/show.html"
   end
 
  #Update
   get "/dogs/:id/edit" do
+    redirect "/login" if not logged_in?
     set_dog
     
     erb :"/dogs/edit.html"
@@ -42,8 +44,8 @@ class DogsController < ApplicationController
 
   
   patch '/dogs/:id' do
-    
-     set_dog
+    redirect "/login" if not logged_in?
+    set_dog
     
     if @dog.update(name: params[:name], breed: params[:breed], temperament: params[:temperament], comments: params[:comments])
       
@@ -57,6 +59,7 @@ class DogsController < ApplicationController
 
   # Delete
   delete "/dogs/:id" do
+    redirect "/login" if not logged_in?
     set_dog
     @dog.destroy
     redirect "/dogs"
@@ -72,11 +75,11 @@ class DogsController < ApplicationController
 
   def set_dog
     @dog = Dog.find_by_id(params[:id])
-    if @dog.nil?
-      flash[:error] = "Couldn't find a Dog with id: #{params[:id]}"
+    if @dog.nil? || @dog.owner_id != current_owner.id
+      #flash[:error] = "Invalid URL"
       redirect "/dogs"
     end
-    @dog
+    
   end
 
  
