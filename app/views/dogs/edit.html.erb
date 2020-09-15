@@ -11,18 +11,18 @@
   </div>
 <% end %>
 <form method="post" action="/dogs/<%= @dog.id %>" >
-<input type="hidden" method="_method" value="patch">
+<input type='hidden' name="_method" value="patch"/>
   <p>
     <div><label  for="name">Name</label></div>
-    <input type="text" name="dog[name]" id="name" value="<%= @dog.name%>" />
+    <input type="text" name="name" id="name" value="<%= @dog.name%>" />
   </p>
   <p>
     <div><label for="breed">Breed</label></div>
-    <input type="text" name="dog[breed]" id="breed" value="<%= @dog.breed %>" />
+    <input type="text" name="breed" id="breed" value="<%= @dog.breed %>" />
   </p>
   
  <div> <label for="temperament">Temperament:</label></div>
-  <select id="temperament" name="dog[temperament]" value="temperament" >
+  <select id="temperament" type="text" name="temperament" value="temperament" >
     <option value="" ><%= @dog.temperament %></option>
     <option value="lazy dog">Lazy Dog</option>
     <option value="feisty">Feisty</option>
@@ -31,7 +31,7 @@
   </select>
   <p>
    <div><label  for="">What's Special About Your Pup?</label></div>
-    <textarea name="comments"  id="comments" value="dog[comments]" rows="8" cols="40" style=white-space:pre-wrap;><%= @dog.comments %></textarea>
+    <textarea name="comments"  id="comments" value="comments" rows="8" cols="40" style=white-space:pre-wrap;><%= @dog.comments %></textarea>
     </p>
   
  <input type="submit" id="submit" value="Update" />

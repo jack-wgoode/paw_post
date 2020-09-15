@@ -35,14 +35,20 @@ class DogsController < ApplicationController
  #Update
   get "/dogs/:id/edit" do
     set_dog
+    
     erb :"/dogs/edit.html"
+    
   end
 
   
   patch '/dogs/:id' do
-    set_dog
-    if @dog.update(title: params[:dog][:title], content:params[:dog][:content])
+    
+     set_dog
+    
+    if @dog.update(name: params[:name], breed: params[:breed], temperament: params[:temperament], comments: params[:comments])
+      
       flash[:success] = "Profile successfully updated"
+    
       redirect "/dogs/#{@dog.id}"
     else 
       erb :"/dogs/edit.html"
@@ -70,6 +76,7 @@ class DogsController < ApplicationController
       flash[:error] = "Couldn't find a Dog with id: #{params[:id]}"
       redirect "/dogs"
     end
+    @dog
   end
 
  
