@@ -1,12 +1,11 @@
-<nav><a href="/">Home</a></nav>
-<div><div class="topnav">
+<div style=float: left;><nav><a href="/">Home</a></nav></div>
+<div>
 <% @dogs.each do |dog| %>
 
 <a href="/dogs/<%= dog.id %>">
 
 <h4><%= dog.name%></h4>
 <br>
-
+</div>
 <%end%>
-</div>
-</div>
+

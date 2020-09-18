@@ -1,14 +1,17 @@
 <!-- app/views/sessions/login.erb -->
-<h1>Log In</h1>
-<%= @error %>
-<form method="post" action="/login">
-  <p>
-    <div><label for="email">Email</label></div>
-    <input type="email" name="email" id="email" />
-  </p>
-  <p>
-    <div><label for="password">Password</label></div>
-    <input type="password" name="password" id="password" />
-  </p>
-  <input type="submit" value="Sign In"/>
-</form>
+<html>
+  <body>
+   <h1>Log In</h1>
+    <%= @error %>
+    <form method="post" action="/login">
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email"/>
+      <br>
+      <p>
+       <label for="password">Password</label>
+        <input type="password" name="password" id="password" style="display: inline-block"; />
+       </p>
+      <input type="submit" value="Sign In"/>
+    </form>
+  </body>
+</html>

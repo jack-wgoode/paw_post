@@ -4,7 +4,7 @@
 <p>   
 <h1><%= @dog.name %> is a  <%= @dog.temperament %> <%=@dog.breed%>.</h1>
 <br>
-  <h1><%=@dog.comments%> </h1>
+  <p style="font-size: 32px; padding:15px";><%=@dog.comments%> </p>
 </p>
 <div>
 <form method="post" action="/dogs/<%= @dog.id %>" style="display: inline-block;">
