@@ -142,9 +142,14 @@
   }
 
   h2 {
-    font-size: 18px;
-    line-height: 24px;
+    color: #ffffff;
+    border-bottom: 2px solid #ccc;
+    font-size: 24px;
+    line-height: 36px;
+    margin-bottom: 16px;
   }
+
+  
 
   
 }

@@ -4,8 +4,8 @@
 <p>   
 <h1><%= @dog.name %> is a  <%= @dog.temperament %> <%=@dog.breed%>.</h1>
 <br>
-  <p style="font-size: 32px; padding:15px";><%=@dog.comments%> </p>
-</p>
+  <h2 style="h2";><%=@dog.comments%> </h2>
+
 <div>
 <form method="post" action="/dogs/<%= @dog.id %>" style="display: inline-block;">
     <input type="hidden" name="_method" value="delete"/>
