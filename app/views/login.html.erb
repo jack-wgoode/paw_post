@@ -5,12 +5,12 @@
     <%= @error %>
     <form method="post" action="/login">
       <label for="email">Email</label>
-      <input type="email" name="email" id="email"/>
+      <input type="email" name="email" id="email" style="display: inline-block";/>
       <br>
-      <p>
-       <label for="password">Password</label>
-        <input type="password" name="password" id="password" style="display: inline-block"; />
-       </p>
+      
+       <label for="password">Password</label><br>
+        <input type="password" name="password" id="password"  />
+       <br>
       <input type="submit" value="Sign In"/>
     </form>
   </body>

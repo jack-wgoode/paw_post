@@ -17,25 +17,26 @@
     <div class="topnav">
   <nav>
       <% if !logged_in? %>
-        <a href="/login">Log In</a>
-        <a href="/owners/new">Sign Up</a>
+      <ul>
+      <li><a href="/login">Log In</a></li>
+      <li><a href="/owners/new">Sign Up</a></li>
+      </ul>  
       <% else %> 
         <form method="post" action="/logout">
           <input type="hidden" name="_method" value="delete"/>
           <input type="submit" value="Log Out"/>
         </form> <h5 class="h5">Logged in as <%=current_owner.name%></h5> 
      <div>
-      <div> 
-        <a href="/dogs/new" >Add a Pup Profile
+       <ul>
+        <li><a href="/dogs/new" >Add a Pup Profile</a></li>        
+        <li><a href="/dogs">View Your Pups</a></li>
+        </ul>
+    </nav>
         
-        </a>
-        <a href="/dogs"  >View Your Pups
-        
-        </a>
       <% end %>
-      </div>
+      
     </div>
-  </nav>
+  
   <% flash.keys.each do |type| %>
   <div data-alert class="flash <%= type %> alert-box radius">
     <%= flash[type] %>

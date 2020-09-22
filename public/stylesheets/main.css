@@ -6,20 +6,20 @@
     padding: 0;
   }
 
-  .input[type=email] {
+  /* .input[type=email] {
     width: 100%;
     padding: 12px 20px;
     margin-left: 50px
     border: 2px black;
     border-radius: 10px;
-  }
+  } */
 
 
   .topnav a {
     float: right;
     color: #f2f2f2;
     padding: 1px 90px;
-    top-margin: 3px
+    margin-top: 0px
     text-decoration: none;
     font-size: 17px;
   }
@@ -57,6 +57,7 @@
   }
 
   h2 {
+    color: #ffffff;
     border-bottom: 2px solid #ccc;
     font-size: 24px;
     line-height: 36px;
@@ -149,8 +150,17 @@
     margin-bottom: 16px;
   }
 
-  
+  label {
+    color: #ffffff
+   display: inline;
+   text-decoration-color: #ffffff;
+  }
 
-  
-}
+ 
+ label.t {display: block;
+          color: #ffffff; }
+ textarea { display:block;}
 
+ a {
+   color: #ffffff
+ }

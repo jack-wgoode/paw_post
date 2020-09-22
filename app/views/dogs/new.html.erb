@@ -1,16 +1,16 @@
 <p><h4>Tell Us About Your Furbaby </h4></p>
 <form method="post" action="/dogs">
   <p>
-    <div><label  for="name">Name</label></div>
+    <label  for="name" class="label";>Name</label>
     <input type="name" name="name" id="name" />
   </p>
   <p>
-    <div><label for="breed">Breed</label></div>
+    <label for="breed" class="label";>Breed</label>
     <input type="breed" name="breed" id="breed" />
   </p>
     
   
- <div> <label for="temperament">Temperament:</label></div>
+  <label for="temperament" style="color: #ffffff";>Temperament:</label>
   <select id="temperament" name="temperament">
     <option value="" >Select a Description</option>
     <option value="lazy dog">Lazy Dog</option>
@@ -18,13 +18,12 @@
     <option value="playful">When do We Play?</option>
     <option value="snugglemeister">Snugglemeister</option>
   </select>
-  
- <p>
-  <div>
-   <div><label  for="">What's Special About Your Pup?</label></div>
-    <textarea name="comments" id="comments"  rows="8" cols="40" style=white-space:pre-wrap;>
+  <br>
+   
+     <label  for="comments" style="color: #ffffff; display: inline";>What's Special About Your Pup?</label>
+     <br>
+    <textarea name="comments" id="comments"  rows="8" cols="40" class="textarea";>
     </textarea>
-  </div>
-  </p>
+  <br>
 <input type="submit"  value="Submit" />
 </form>
