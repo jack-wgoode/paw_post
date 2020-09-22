@@ -15,6 +15,12 @@ class DogsController < ApplicationController
    
   end
 
+  get "/dogs/all" do
+    redirect "/login" if not logged_in?
+    @dogs = Dog.all
+    erb :"/dogs/all.html"
+  end
+
   # POST: /dogs
   post "/dogs" do
    
